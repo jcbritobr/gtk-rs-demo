@@ -25,7 +25,7 @@ $ pacman -S mingw-w64-x86_64-gtk3
 $ pacman -S mingw-w64-x86_64-glade    
 ```
 
-* **Build and run the Demo** -
+* **Build and run the Demo** - You will need to build using msys2 shell or put mingw-gcc on path.
 ```
 $ cargo run
 ``` 
