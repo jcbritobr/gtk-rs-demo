@@ -69,7 +69,7 @@ impl Ui {
         button_destructive_action.set_margin_bottom(10);
         button_destructive_action.set_margin_end(10);
 
-        let button_suggested_action = Button::with_label("Informative action");
+        let button_suggested_action = Button::with_label("Suggested action");
         button_suggested_action.set_margin_bottom(10);
         button_suggested_action.set_margin_end(10);
 
