@@ -12,7 +12,7 @@ You will need the gnu toolchain of rust for windows, because we can use **Msys2*
 
 * **Installing mingw gcc compiler** - In msys2 bash shell, just type the command below:
 ```
-$ pacman -S mingw-w64-x86_64-gcc 
+$ pacman -S mingw-w64-x86_64-toolchain 
 ```
 
 * **Installing gtk3** - In msys2 bash shell, just type the command below:
