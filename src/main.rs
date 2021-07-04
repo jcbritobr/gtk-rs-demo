@@ -1,3 +1,7 @@
+mod buttonui;
+mod button_ui_controller;
+mod entryui;
+mod model;
 mod ui;
 mod uicontroller;
 
