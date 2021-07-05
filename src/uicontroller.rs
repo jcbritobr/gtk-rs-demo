@@ -4,6 +4,8 @@ use gtk::prelude::{
 
 use crate::button_ui::*;
 use crate::button_ui_controller::ButtonUiController;
+use crate::combo_box_ui::ComboBoxBox;
+use crate::custom_cell_renderer_ui::CustomCellRendererBox;
 use crate::drawing_area_ui::DrawingAreaBox;
 use crate::entry_ui::*;
 use crate::{model::ExampleType, ui::Ui};
@@ -41,8 +43,18 @@ fn on_tree_clicked(ui: &Ui) {
                 paned.pack2(new_widget, true, false);
                 new_widget.show_all();
             }
-            ExampleType::CustomCellRenderer => {}
-            ExampleType::ComboBox => {}
+            ExampleType::CustomCellRenderer => {
+                let custom_cell_renderer_box = CustomCellRendererBox::new();
+                let new_widget = &custom_cell_renderer_box._box;
+                paned.pack2(new_widget, true, false);
+                new_widget.show_all();
+            }
+            ExampleType::ComboBox => {
+                let combo_box = ComboBoxBox::new();
+                let new_widget = &combo_box._box;
+                paned.pack2(new_widget, true, false);
+                new_widget.show_all();
+            }
             ExampleType::DrawingArea => {
                 let drawing_box = DrawingAreaBox::new();
                 let new_widget = &drawing_box._box;

@@ -5,6 +5,8 @@ mod model;
 mod ui;
 mod uicontroller;
 mod drawing_area_ui;
+mod combo_box_ui;
+mod custom_cell_renderer_ui;
 
 use gtk::{
     prelude::{ApplicationExt, ApplicationExtManual},
