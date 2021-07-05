@@ -2,9 +2,10 @@ use gtk::prelude::{
     ContainerExt, PanedExt, TreeModelExt, TreeSelectionExt, TreeViewExt, WidgetExt,
 };
 
-use crate::buttonui::*;
+use crate::button_ui::*;
 use crate::button_ui_controller::ButtonUiController;
-use crate::entryui::*;
+use crate::drawing_area_ui::DrawingAreaBox;
+use crate::entry_ui::*;
 use crate::{model::ExampleType, ui::Ui};
 
 pub struct UiController {}
@@ -42,7 +43,12 @@ fn on_tree_clicked(ui: &Ui) {
             }
             ExampleType::CustomCellRenderer => {}
             ExampleType::ComboBox => {}
-            ExampleType::DrawingArea => {}
+            ExampleType::DrawingArea => {
+                let drawing_box = DrawingAreaBox::new();
+                let new_widget = &drawing_box._box;
+                paned.pack2(new_widget, true, false);
+                new_widget.show_all();
+            }
             ExampleType::Entry => {
                 let entry_box = EntryBox::new();
                 let new_widget = &entry_box._box;

@@ -2,7 +2,7 @@ use std::{cell::Cell, rc::Rc};
 
 use gtk::prelude::{ButtonExt};
 
-use crate::buttonui::ButtonBox;
+use crate::button_ui::ButtonBox;
 
 pub struct ButtonUiController {}
 

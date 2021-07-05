@@ -1,4 +1,4 @@
-use crate::model::ExampleType;
+use crate::{button_ui_controller::ButtonUiController, button_ui::ButtonBox, model::ExampleType};
 use cascade::cascade;
 use glib::StaticType;
 use gtk::{
@@ -6,7 +6,7 @@ use gtk::{
         CellLayoutExt, ContainerExt, GtkWindowExt, HeaderBarExt, PanedExt, TreeStoreExtManual,
         TreeViewExt, WidgetExt,
     },
-    Application, ApplicationWindow, Button, CellRendererText, HeaderBar, Orientation, Paned,
+    Application, ApplicationWindow, CellRendererText, HeaderBar, Orientation, Paned,
     TreeStore, TreeView, TreeViewColumn,
 };
 
@@ -14,7 +14,6 @@ pub struct Ui {
     pub window: ApplicationWindow,
     pub tree_content: TreeView,
     pub paned: Paned,
-    pub current_widget: Option<gtk::Box>,
 }
 
 impl Ui {
@@ -43,8 +42,6 @@ impl Ui {
             ..set_headers_visible(false);
         };
 
-        let btn1 = Button::with_label("Clique me 2");
-
         let tree_store = TreeStore::new(&[String::static_type()]);
         tree_content.set_model(Some(&tree_store));
         append_text_column(&tree_content);
@@ -53,8 +50,11 @@ impl Ui {
             tree_store.insert_with_values(None, None, &[(0, &format!("{}", i))]);
         }
 
+        let button_ui = ButtonBox::new();
+        ButtonUiController::setup(&button_ui);
+
         paned.pack1(&tree_content, true, false);
-        paned.pack2(&btn1, true, true);
+        paned.pack2(&button_ui._box, true, true);
 
         window.set_titlebar(Some(&header_bar));
         window.add(&paned);
@@ -65,7 +65,6 @@ impl Ui {
             window,
             tree_content,
             paned,
-            current_widget: None,
         }
     }
 }
