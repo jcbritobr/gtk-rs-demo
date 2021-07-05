@@ -1,9 +1,10 @@
-mod buttonui;
+mod button_ui;
 mod button_ui_controller;
-mod entryui;
+mod entry_ui;
 mod model;
 mod ui;
 mod uicontroller;
+mod drawing_area_ui;
 
 use gtk::{
     prelude::{ApplicationExt, ApplicationExtManual},
