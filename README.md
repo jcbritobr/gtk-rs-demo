@@ -30,4 +30,4 @@ $ pacman -S mingw-w64-x86_64-glade
 $ cargo run
 ``` 
 
-![](thumbs/gtk_demo.png)
+![](thumbs/gtk_demo_hello.png)

@@ -3,7 +3,7 @@ mod button_ui_controller;
 mod entry_ui;
 mod model;
 mod ui;
-mod uicontroller;
+mod ui_controller;
 mod drawing_area_ui;
 mod combo_box_ui;
 mod custom_cell_renderer_ui;
@@ -13,7 +13,7 @@ use gtk::{
     Application,
 };
 use ui::Ui;
-use uicontroller::UiController;
+use ui_controller::UiController;
 
 fn main() {
     let app = Application::new(Some("org.gard.training"), Default::default());
