@@ -1,3 +1,5 @@
+use glib::IsA;
+use gtk::{Paned, Widget};
 use gtk::prelude::{
     ContainerExt, PanedExt, TreeModelExt, TreeSelectionExt, TreeViewExt, WidgetExt,
 };
@@ -38,35 +40,30 @@ fn on_tree_clicked(ui: &Ui) {
         ) {
             ExampleType::Button => {
                 let button_box = ButtonBox::new();
-                let new_widget = &button_box._box;
                 ButtonUiController::setup(&button_box);
-                paned.pack2(new_widget, true, false);
-                new_widget.show_all();
+                update_panel(&paned, &button_box._box);
             }
             ExampleType::CustomCellRenderer => {
                 let custom_cell_renderer_box = CustomCellRendererBox::new();
-                let new_widget = &custom_cell_renderer_box._box;
-                paned.pack2(new_widget, true, false);
-                new_widget.show_all();
+                update_panel(&paned, &custom_cell_renderer_box._box);
             }
             ExampleType::ComboBox => {
                 let combo_box = ComboBoxBox::new();
-                let new_widget = &combo_box._box;
-                paned.pack2(new_widget, true, false);
-                new_widget.show_all();
+                update_panel(&paned, &combo_box._box);
             }
             ExampleType::DrawingArea => {
                 let drawing_box = DrawingAreaBox::new();
-                let new_widget = &drawing_box._box;
-                paned.pack2(new_widget, true, false);
-                new_widget.show_all();
+                update_panel(&paned, &drawing_box._box);
             }
             ExampleType::Entry => {
                 let entry_box = EntryBox::new();
-                let new_widget = &entry_box._box;
-                paned.pack2(new_widget, true, false);
-                new_widget.show_all();
+                update_panel(&paned, &entry_box._box);
             }
         }
     });
+}
+
+fn update_panel<W: IsA<Widget>>(paned: &Paned, cbox: &W) {
+    paned.pack2(cbox, true, false);
+    cbox.show_all();
 }
