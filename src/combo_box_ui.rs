@@ -1,6 +1,6 @@
 use gio::ListStore;
 use glib::StaticType;
-use gtk::prelude::{ComboBoxExt, ComboBoxExtManual, ComboBoxTextExt, ContainerExt, GtkListStoreExt, GtkListStoreExtManual, WidgetExt};
+use gtk::prelude::{CellLayoutExt, ComboBoxExt, ComboBoxExtManual, ComboBoxTextExt, ContainerExt, GtkListStoreExt, GtkListStoreExtManual, WidgetExt};
 
 const WIDGET_PADDING: i32 = 5;
 
